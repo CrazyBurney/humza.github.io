@@ -36,11 +36,16 @@
     .team-card {
       background: #141a33;
       border-radius: 10px;
-      padding: 15px;
+      padding: 8px 12px;           /* reduced padding */
       box-shadow: 0 0 12px rgba(0,0,0,0.4);
     }
 
-    /* Make the team title clickable */
+    .team-title {
+      margin-top: 0;               /* removes top gap */
+      margin-bottom: 6px;          /* tighter spacing */
+      text-align: center;
+    }
+
     .team-title a {
       color: #4da3ff;
       text-decoration: none;
@@ -51,6 +56,7 @@
     .team-title a:hover {
       text-decoration: underline;
     }
+
 
     .team-title {
       margin-bottom: 10px;

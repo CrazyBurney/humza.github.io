@@ -167,5 +167,17 @@
     </div> 
 
   </div>
+
+  <script>
+  // Refresh all iframes every 60 seconds
+  setInterval(() => {
+    document.querySelectorAll("iframe").forEach(f => {
+      const src = f.src;    // preserve original URL
+      f.src = src;          // reload iframe quietly
+    });
+  }, 60000); // 60000 ms = 1 minute
+</script>
+
+  
 </body>
 </html>

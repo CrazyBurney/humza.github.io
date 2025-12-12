@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Our CyberPatriot Teams – Live Scores</title>
+  <title>Our CyberPatriot Teams – Live Scoreboards</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
@@ -25,9 +25,10 @@
       margin-bottom: 20px;
     }
 
-    .teams-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* Stack cards in a single column (one per row) */
+    .teams-column {
+      display: flex;
+      flex-direction: column;
       gap: 24px;
       margin-top: 20px;
     }
@@ -41,30 +42,23 @@
 
     .team-title {
       margin: 0 0 10px 0;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       text-align: center;
     }
 
-    /* Container that defines what part is visible */
+    /* Full rectangle iframe for each team */
     .frame-container {
       width: 100%;
-      height: 650px;          /* visible window (table + graph) */
-      overflow: hidden;       /* hide everything else */
-      position: relative;
+      height: 750px;      /* adjust if you want taller/shorter */
+      overflow: auto;     /* lets you scroll inside if needed */
       border-radius: 8px;
       border: 2px solid #004aad;
       background: #000;
     }
 
-    /* Iframe is larger and shifted so only the good part shows */
-    .cropped-frame {
-      position: absolute;
-      top: -180px;            /* move up to hide header/nav */
-      left: -80px;            /* horizontal adjust if needed */
-      width: 1400px;          /* zoom level via width/scale */
-      height: 1200px;         /* must be big to cover area */
-      transform: scale(0.9);  /* zoom out slightly */
-      transform-origin: top left;
+    .score-frame {
+      width: 100%;
+      height: 100%;
       border: 0;
     }
 
@@ -89,18 +83,18 @@
   <h1>Our CyberPatriot Teams</h1>
   <h2>Live Scoreboards</h2>
   <p class="note">
-    Each panel shows the official CyberPatriot team scoreboard. Only the image scores table and graph
-    are visible. If anything fails to load, use the direct link under the panel.
+    Each panel shows the full official CyberPatriot team scoreboard page in its own row.
+    If a panel doesn’t load, use the direct link under it.
   </p>
 
-  <div class="teams-grid">
+  <div class="teams-column">
 
     <!-- Team 18-1264 -->
     <div class="team-card">
       <h3 class="team-title">Team 18-1264</h3>
       <div class="frame-container">
         <iframe
-          class="cropped-frame"
+          class="score-frame"
           src="https://scoreboard.uscyberpatriot.org/team.php?team=18-1264">
         </iframe>
       </div>
@@ -117,7 +111,7 @@
       <h3 class="team-title">Team 18-1265</h3>
       <div class="frame-container">
         <iframe
-          class="cropped-frame"
+          class="score-frame"
           src="https://scoreboard.uscyberpatriot.org/team.php?team=18-1265">
         </iframe>
       </div>
@@ -134,7 +128,7 @@
       <h3 class="team-title">Team 18-1475</h3>
       <div class="frame-container">
         <iframe
-          class="cropped-frame"
+          class="score-frame"
           src="https://scoreboard.uscyberpatriot.org/team.php?team=18-1475">
         </iframe>
       </div>
@@ -148,10 +142,10 @@
 
     <!-- Team 18-1488 -->
     <div class="team-card">
-      <h3 class="team-title">Team 18-1488888</h3>
+      <h3 class="team-title">Team 18-1488</h3>
       <div class="frame-container">
         <iframe
-          class="cropped-frame"
+          class="score-frame"
           src="https://scoreboard.uscyberpatriot.org/team.php?team=18-1488">
         </iframe>
       </div>
@@ -168,7 +162,7 @@
       <h3 class="team-title">Team 18-0523</h3>
       <div class="frame-container">
         <iframe
-          class="cropped-frame"
+          class="score-frame"
           src="https://scoreboard.uscyberpatriot.org/team.php?team=18-0523">
         </iframe>
       </div>
